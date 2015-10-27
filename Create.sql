@@ -1,0 +1,50 @@
+CREATE TABLE Author (
+	ID CHAR(10),
+	Name CHAR(250),
+	PRIMARY KEY(ID)
+);
+
+CREATE TABLE Book (
+	ISBN CHAR(15),
+	Title CHAR(250),
+	Edition CHAR(10),
+	YearIssued (INT,
+	PRIMARY KEY(ISBN)
+);
+
+CREATE TABLE Copy (
+	barCode CHAR(10),
+	Book_ID CHAR(15),
+	PRIMARY KEY(barCode),
+	FOREIGN KEY(Book_ID) REFERENCES Book(ISBN)
+);
+
+CREATE TABLE Authorship (
+	ID INT AUTO_INCREMENT,
+	Book_ID CHAR(15),
+	Author_ID CHAR(10),
+	Main BOOLEAN,
+	PRIMARY KEY(ID),
+	FOREIGN KEY(Book_ID) REFERENCES Book(ISBN),
+	FOREIGN KEY(Author_ID) REFERENCES Author(ID)
+);
+
+CREATE TABLE Member (
+	ID INT AUTO_INCREMENT,
+	Name CHAR(250),
+	GENDER INT,
+	email CHAR(250),
+	PRIMARY KEY(ID)
+);
+
+CREATE TABLE Loan (
+	ID INT AUTO_INCREMENT,
+	copyID CHAR(10),
+	memberID INT,
+	borrowDate DATE,
+	returnDate DATE NULL,
+	status INT,
+	PRIMARY KEY(ID),
+	FOREIGN KEY(copyID) REFERENCES Copy(barCode),
+	FOREIGN KEY(memberID) REFERENCES Member(ID)
+);
