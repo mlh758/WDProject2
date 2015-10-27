@@ -8,7 +8,7 @@ CREATE TABLE Book (
 	ISBN CHAR(15),
 	Title CHAR(250),
 	Edition CHAR(10),
-	YearIssued (INT,
+	YearIssued INT,
 	PRIMARY KEY(ISBN)
 );
 
