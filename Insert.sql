@@ -6,7 +6,7 @@ INSERT INTO Author (ID, Name)
 
 --Book Data	
 INSERT INTO Book (ISBN, Title, Edition, YearIssued)
-	VALUES (0672324539, "Data Structures and Algorithms in Java", "2", 2002);
+	VALUES ("0672324539", "Data Structures and Algorithms in Java", "2", 2002);
 	
 --Copy Data
 INSERT INTO Copy (barCode, Book_ID)
